@@ -1,0 +1,11 @@
+a=1
+start=0 
+while IFS='' read -r line || [[ -n "$line" ]]; do
+	if [ $a -gt $start ] 
+	then
+    	   echo 'Baseline : Solving Problems Glucose 17 '-$a-$line
+     	 ./glucose -cpu-lim=5000 '../../../../../benchmarks/instances2017/instances/'$line >> '17/'expMLD_CBT_LRBOnly-S-B-17_fc.txt
+	fi
+    	((a+=1))
+done < "$1"
+

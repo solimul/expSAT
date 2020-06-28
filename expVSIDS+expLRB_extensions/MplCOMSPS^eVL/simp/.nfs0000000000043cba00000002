@@ -1,0 +1,11 @@
+a=1
+start=0 
+while IFS='' read -r line || [[ -n "$line" ]]; do
+	if [ $a -lt 14 ] 
+	then
+    	   echo 'Baseline : expMLD_CBT Solving Problems satCoin '-$a-$line
+     	 ./minisat -cpu-lim="36000" '../../../../../benchmarks/satcoin_52_benches/'$line >> 'satCoin/expMapleCOMSPS_default_satCoin1_FP.txt'
+	fi
+    	((a+=1))
+done < "$1"
+
